@@ -1,4 +1,8 @@
-//ugugdliin turluud
+//ugugdliin turluud dynamic
+//strong type : C++, Java, C# ymr turultei bhiig zaaj ugdug
+//ugugdliin turliig ram deer hadgaladag buyu hemjeeg zaaj ugj boldog gedgiig todorhoildog
+// v8 engine ts iig shuud tanidgui bolhoor jv ruu hurvuj ajildag - react
+//ts iig jx ruu hurvuulne ts confile
 
 let too: number = 15;
 
