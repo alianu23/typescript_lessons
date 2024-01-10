@@ -1,49 +1,60 @@
 import React from "react";
 
-const TodoForm = ({ open, close }: any) => {
+const TodoForm = ({ open, closeForm }: any) => {
   return (
-    <div className="py-5">
-      <dialog className="modal" id="my_modal_4" open={open}>
-        <div className="modal-box w-11/12 max-w-3xl">
-          <h3 className="font-bold text-lg">Add task</h3>
-          <div className="mt-5 w-full">
-            <div>
-              <h1>ToDo Name</h1>
-              <input
-                type="text"
-                className="py-5 px-5 rounded-md"
-                placeholder="ToDo Name"
-              />
-            </div>
-            <div>
-              <h1 className="mt-5">Participant</h1>
-              <input
-                type="text"
-                className="py-5 px-5 rounded-md"
-                placeholder="Participant"
-              />
-            </div>
-            <div>
-              <h1 className="mt-5">Date</h1>
-              <input
-                type="datetime-local"
-                className="py-5 px-5 rounded-md"
-                placeholder="Date added"
-              />
-            </div>
-          </div>
-
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button onClick={close} className="btn mt-5 btn-accent">
-                Close
-              </button>
-            </form>
-          </div>
+    <dialog open={open} className="modal rounded-lg ">
+      <div
+        className="flex flex-col gap-4 "
+        style={{
+          paddingLeft: 20,
+          paddingTop: 20,
+          paddingRight: 20,
+          paddingBottom: 20,
+        }}
+      >
+        <div className="flex justify-between">
+          <h3 className="font-bold text-lg mb-6">Add task</h3>
+          <button className="dark:text-slate-50" onClick={closeForm}>
+            X
+          </button>
         </div>
-      </dialog>
-    </div>
+        <div className="flex items-center flex-col gap-5">
+          {" "}
+          <div className="w-full flex flex-col">
+            <h3 className="mb-4">Todo Name</h3>
+            <input
+              type="text"
+              name="name"
+              className=" bg-slate-300  w-full rounded-md text-black"
+              style={{ padding: 10, marginTop: 10 }}
+              placeholder="Write todo name"
+            />
+          </div>
+          <div className="w-full flex flex-col">
+            <h3 className="text-wrap">Participant</h3>
+            <input
+              type="text"
+              name="participant"
+              style={{ padding: 10, marginTop: 10 }}
+              className="bg-slate-300 py-2 w-full pl-5 rounded-md text-black"
+              placeholder="Write here ..."
+            />
+          </div>
+          <div className="w-full">
+            <h3>Date</h3>
+            <input
+              type="datetime-local"
+              style={{ padding: 10, marginTop: 10 }}
+              className="bg-slate-300 py-2 w-full pl-5 rounded-md text-black"
+              name="date"
+            />
+          </div>
+          <button className="btn btn-accent mt-3" type="button">
+            Add task
+          </button>
+        </div>
+      </div>
+    </dialog>
   );
 };
 
