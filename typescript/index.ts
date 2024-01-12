@@ -136,3 +136,26 @@ print2(200);
 
 const p = print1("welcome");
 console.log(p);
+
+//Generic type
+//overoading ->
+
+function add1<T>(a: T): T {
+  return a;
+}
+//index signature
+type StatusType = {
+  [key: string]: string;
+};
+
+const statusTest: StatusType = {
+  2: "hello",
+  high: "high",
+};
+
+//ts config file tsc --init
+//common js -es5
+//"rootDir" :"./src" src dotroo - index.tsx
+//"outDir": "./build" hurwuuleed garad index.js n iishee orno
+
+//js style guide github

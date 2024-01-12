@@ -77,3 +77,17 @@ function print2(msg) {
 print2(200);
 var p = print1("welcome");
 console.log(p);
+//Generic type
+//overoading ->
+function add1(a) {
+    return a;
+}
+var statusTest = {
+    2: "hello",
+    high: "high",
+};
+//ts config file tsc --init
+//common js -es5
+//"rootDir" :"./src" src dotroo - index.tsx
+//"outDir": "./build" hurwuuleed garad index.js n iishee orno
+//js style guide github
