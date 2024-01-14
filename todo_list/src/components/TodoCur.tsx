@@ -37,7 +37,7 @@ const TodoCur: FC<PropsType> = ({ board }) => {
             {board.hasBtn && (
               <button
                 onClick={() => setOpen(true)}
-                className=" bg-green-500 px-2 rounded-full text-xl"
+                className=" bg-green-500 px-2 pb-1 rounded-full text-xl"
               >
                 +
               </button>

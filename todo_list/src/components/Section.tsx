@@ -60,7 +60,39 @@ const Section = () => {
   ]);
 
   const handleOnDragEnd = (result: DropResult) => {
-    console.log("result", result);
+    // console.log("result", result);
+    const { source, destination } = result;
+    console.log("SRC", source);
+    console.log("DES", destination);
+
+    if (!destination) return;
+
+    if (source.droppableId !== destination.droppableId) {
+      const newData = [...JSON.parse(JSON.stringify(boards))]; //shallow
+      const oldDroppableId = newData.findIndex(
+        (el) => el.id === source.droppableId.split("-")[1]
+      );
+      const newDroppableId = newData.findIndex(
+        (el) => el.id === destination.droppableId.split("-")[1]
+      );
+      console.log("OLD-IDX", oldDroppableId);
+      console.log("NEW_IDX", newDroppableId);
+      const [task] = newData[oldDroppableId].tasks.splice(source.index, 1);
+      console.log("ITEM", task);
+      newData[newDroppableId].tasks.splice(destination.index, 0, task);
+      setBoards([...newData]);
+    } else {
+      const newData = [...JSON.parse(JSON.stringify(boards))];
+      const droppableId = newData.findIndex(
+        (el) => el.id === source.droppableId.split("-")[1]
+      );
+      console.log("DROP-IDX", droppableId);
+
+      const [task] = newData[droppableId].tasks.splice(source.index, 1);
+      console.log("ITEM", task);
+      newData[droppableId].tasks.splice(destination.index, 0, task);
+      setBoards([...newData]);
+    }
   };
   return (
     <div className="grid lg:grid-cols-3 grid-rows-3 max-w-fit gap-4">
@@ -74,36 +106,3 @@ const Section = () => {
 };
 
 export default Section;
-
-// const { source, destination } = result;
-//     console.log("SRC", source);
-//     console.log("DES", destination);
-
-//     if (!destination) return;
-
-//     if (source.droppableId !== destination.droppableId) {
-//       const newData = [...JSON.parse(JSON.stringify(boards))]; //shallow
-//       const oldDroppableId = newData.findIndex(
-//         (el) => el.id === source.droppableId.split("-")[1]
-//       );
-//       const newDroppableId = newData.findIndex(
-//         (el) => el.id === destination.droppableId.split("-")[1]
-//       );
-//       console.log("OLD-IDX", oldDroppableId);
-//       console.log("NEW_IDX", newDroppableId);
-//       const [task] = newData[oldDroppableId].tasks.splice(source.index, 1);
-//       console.log("ITEM", task);
-//       newData[newDroppableId].tasks.splice(destination.index, 0, task);
-//       setBoards([...newData]);
-//     } else {
-//       const newData = [...JSON.parse(JSON.stringify(boards))];
-//       const droppableId = newData.findIndex(
-//         (el) => el.id === source.droppableId.split("-")[1]
-//       );
-//       console.log("DROP-IDX", droppableId);
-
-//       const [task] = newData[droppableId].tasks.splice(source.index, 1);
-//       console.log("ITEM", task);
-//       newData[droppableId].tasks.splice(destination.index, 0, task);
-//       setBoards([...newData]);
-//     }
