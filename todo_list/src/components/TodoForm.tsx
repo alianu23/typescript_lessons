@@ -1,6 +1,14 @@
-import React from "react";
+import React, { ChangeEvent, FC } from "react";
 
-const TodoForm = ({ open, closeForm }: any) => {
+interface FormProps {
+  open: boolean;
+  handleClose: () => void;
+}
+
+const TodoForm: FC<FormProps> = ({ open, closeForm }: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log("target value", e.target.value);
+  };
   return (
     <dialog open={open} className="modal ">
       <div className="flex flex-col gap-4 dark:bg-slate-800 bg-slate-100 rounded-xl py-5 px-6">
@@ -15,6 +23,7 @@ const TodoForm = ({ open, closeForm }: any) => {
           <div className="w-full flex items-center">
             <h3 className="w-2/4">Todo Name</h3>
             <input
+              onChange={handleChange}
               type="text"
               name="name"
               className=" py-2 w-full pl-5 rounded-md "

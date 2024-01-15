@@ -16,14 +16,14 @@ const Section = () => {
         {
           id: "0",
           name: "First",
-          priority: "High",
+          priority: "high",
           author: "John",
           isStatus: "Todo",
         },
         {
           id: "1",
           name: "second",
-          priority: "High",
+          priority: "high",
           author: "John",
           isStatus: "Todo",
         },
@@ -37,7 +37,7 @@ const Section = () => {
         {
           id: "2",
           name: "first",
-          priority: "Medium",
+          priority: "medium",
           author: "John",
           isStatus: "Todo",
         },
@@ -51,7 +51,7 @@ const Section = () => {
         {
           id: "3",
           name: "Second",
-          priority: "Low",
+          priority: "low",
           author: "John",
           isStatus: "Todo",
         },

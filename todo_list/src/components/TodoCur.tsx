@@ -3,6 +3,7 @@
 import React, { FC, useState } from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import TodoForm from "./TodoForm";
+import { status } from "@/utils";
 
 type PropsType = {
   board: {
@@ -56,7 +57,13 @@ const TodoCur: FC<PropsType> = ({ board }) => {
                 >
                   <div className="flex items-center gap-3">
                     <h3 className="font-bold">{task.name}</h3>
-                    <h4 className="badge badge-primary">{task.priority}</h4>
+                    <span
+                      className={`badge badge-${
+                        status[task.priority]
+                      } badge-outline`}
+                    >
+                      {task.priority}
+                    </span>
                   </div>
                   <div className="mt-4">
                     <div className="flex">
